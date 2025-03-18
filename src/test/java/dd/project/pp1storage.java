@@ -58,6 +58,7 @@ public class pp1storage {
             }
 
             String[] lines = output.toString().split("\n");
+	    System.out.println("------------------------------------PPl STORAGE REPORT:-----------------------------------------");
             System.out.println("+------------------------------------+------+-------+-------+--------+-------------------------+");
             System.out.println("|       Filesystem                   | Size | Used  | Avail |  Use%  | Mounted on              |");
             System.out.println("+------------------------------------+------+-------+-------+--------+-------------------------+");
@@ -70,7 +71,7 @@ public class pp1storage {
                 System.out.println("+------------------------------------+------+-------+-------+--------+-------------------------+");
 
                 int usePercent = Integer.parseInt(parts[4].replace("%", ""));
-                if (usePercent > 10) {
+                if (usePercent > 70) {
                     sendEmail = true;
                     if (parts[0].equals("df -h /mnt/local/nvmestorage")) {
                         emailContent.append("PP1.humanbrain.in  - nvmeShare used storage is exceeding 70%\n");
@@ -92,7 +93,7 @@ public class pp1storage {
 	        // Recipient's email ID needs to be mentioned.
 	  
 	    	String[] to = {"annotation.divya@gmail.com"};
-	        String[] cc = { "divya.d@htic.iitm.ac.in"};
+	        String[] cc = {"nathan.i@htic.iitm.ac.in, venip@htic.iitm.ac.in"};
 	        String[] bcc = {};  	
 	    
 	        // Sender's email ID needs to be mentioned
