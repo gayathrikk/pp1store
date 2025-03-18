@@ -70,7 +70,7 @@ public class pp1storage {
                  System.out.println("+------------------------------------+------+-------+-------+--------+-------------------------+");
 
                  int usePercent = Integer.parseInt(parts[4].replace("%", ""));
-                 if (usePercent > 70) {
+                 if (usePercent > 1) {
                      sendEmail = true;
                      if (parts[0].equals("df -h /mnt/local/nvmestorage")) {
                          emailContent.append("pp1.humanbrain.in  -  used storage is exceeding 70%\n");
@@ -91,8 +91,8 @@ public class pp1storage {
 	 private void sendEmailAlert(String messageBody) {
 	        // Recipient's email ID needs to be mentioned.
 	  
-	       String[] to = {"divya.d@htic.iitm.ac.in"};
-	        String[] cc = {"nathan.i@htic.iitm.ac.in, venip@htic.iitm.ac.in"};
+	    	String[] to = {"divya.d@htic.iitm.ac.in"};
+	        String[] cc = { "nathan.i@htic.iitm.ac.in, venip@htic.iitm.ac.in"};
 	        String[] bcc = {};  	
 	    
 	        // Sender's email ID needs to be mentioned
@@ -134,7 +134,7 @@ public class pp1storage {
 	            // Set the actual message
 	            message.setContent("This email has been automatically generated:<br>" + messageBody + 
 	            	    "Attention and Action Required <br>" + messageBody +
-	            	    "<br>PP1 <b>scanner_2 nvmeShare</b> storage utilization has crossed <b style='color:red;'>70%</b> :<br>" + messageBody + 
+	            	    "<br>PP! <b>nvmeShare</b> storage utilization has crossed <b style='color:red;'>70%</b> :<br>" + messageBody + 
 	            	    "<br>Please clear unnecessary files to free up space and avoid storage-related issues.<br>" + messageBody, "text/html");
 
 	            System.out.println("sending...");
@@ -144,4 +144,4 @@ public class pp1storage {
 	        } catch (MessagingException mex) {
 	            mex.printStackTrace();
 	        }
-     }}
+  }}
